@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bora pro Bloco!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #F39C12, #D35400, #16A085);
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        h2 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 213, 79, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            margin: 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(255, 152, 0, 0.2);
+        }
+
+        .card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-content {
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+
+        .card .btn {
+            align-self: center;
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            color: #D35400;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-text {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #16A085, #F39C12);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #D35400, #16A085);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(22, 160, 133, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .card {
+            flex: 0 0 calc(33.333% - 2rem);
+            max-width: calc(33.333% - 2rem);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-4">Bora pra Onde??!</h2>
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <h5 class="card-title">Bloco Céu na Terra</h5>
+                                <p class="card-text">O bloco mais animado de Santa Teresa! Venha curtir marchinhas e confetes nesse pedacinho do céu.</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Em breve</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <h5 class="card-title">Bloco do Wando</h5>
+                                <p class="card-text">Samba, amor e muito axé! O bloco que faz todo mundo dançar até o sol raiar.</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Em breve</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <h5 class="card-title">Bloco Escravos da Mauá</h5>
+                                <p class="card-text">Tradição e história se encontram no porto. O bloco mais tradicional da zona portuária!</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Em breve</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="{{ url_for('selecionar_itens', usuario_id=session.get('usuario_id')) }}" class="btn btn-primary">Selecionar Itens</a>
+                    <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
